@@ -39,8 +39,8 @@ def preprocess_image_wo_norm(img: np.ndarray, mean=[0.485, 0.456, 0.406], std=[0
 
 # method = 'AblationCAM'  # Expend times to run 
 # method = 'GradCAM'
-# method = 'GradCAMPlusPlus'
-method = 'ScoreCAM'   # Expend times to run
+method = 'GradCAMPlusPlus'
+# method = 'ScoreCAM'   # Expend times to run
 # method = 'XGradCAM'   # Axiom-based Grad-CAM, 2020
 # method = 'EigenCAM'   # 2020, good to use
 
