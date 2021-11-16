@@ -56,7 +56,7 @@ model_path = "models/net_019.pth"
 # img_path = "examples/OK_3/1_2_R255-1204137000410.JPG"  # Misclassified_ok_as_ng
 # save_path = f"examples/OK_3/{method}_1_2_R255-1204137000410_out.jpg"
 
-img_path = "examples/OK_2/1_1_IOR2-1203876200272.JPG"  # Misclassified_ok_as_ng
+img_path = "examples/OK_2/1_1_IOR2-1203876200272.JPG"
 save_path = f"examples/OK_2/{method}_1_1_IOR2-1203876200272_out.jpg"
 
 checkpoint = torch.load(model_path)#, map_location='cuda:0')
