@@ -39,8 +39,8 @@ def preprocess_image_wo_norm(img: np.ndarray, mean=[0.485, 0.456, 0.406], std=[0
 
 # method = 'AblationCAM'  # Expend times to run 
 # method = 'GradCAM'
-method = 'GradCAMPlusPlus'
-# method = 'ScoreCAM'   # Expend times to run
+# method = 'GradCAMPlusPlus'
+method = 'ScoreCAM'   # Expend times to run
 # method = 'XGradCAM'   # Axiom-based Grad-CAM, 2020
 # method = 'EigenCAM'   # 2020, good to use
 
@@ -53,11 +53,11 @@ model_path = "models/net_019.pth"
 # img_path = "examples/NG/1_1_C103-G08A002400057.JPG"  # Predict success
 # save_path = f"examples/NG/{method}_1_1_C103-G08A002400057_out.jpg"
 
-# img_path = "examples/OK_3/1_2_R255-1204137000410.JPG"  # Misclassified_ok_as_ng
-# save_path = f"examples/OK_3/{method}_1_2_R255-1204137000410_out.jpg"
+img_path = "examples/NG_3/1_2_R255-1204137000410.JPG"  # Misclassified_ng_as_ok
+save_path = f"examples/NG_3/{method}_1_2_R255-1204137000410_out.jpg"
 
-img_path = "examples/OK_2/1_1_IOR2-1203876200272.JPG"
-save_path = f"examples/OK_2/{method}_1_1_IOR2-1203876200272_out.jpg"
+# img_path = "examples/OK_2/1_1_IOR2-1203876200272.JPG"
+# save_path = f"examples/OK_2/{method}_1_1_IOR2-1203876200272_out.jpg"
 
 checkpoint = torch.load(model_path)#, map_location='cuda:0')
 state_dict = model.state_dict()
@@ -103,8 +103,8 @@ elif method == 'EigenCAM':
 target_category = 0 if "OK" in img_path else 1
 
 # You can also pass aug_smooth=True and eigen_smooth=True, to apply smoothing.
-# grayscale_cam = cam(input_tensor=input_tensor, target_category=target_category)
-grayscale_cam = cam(input_tensor=input_tensor, target_category=target_category, aug_smooth=True, eigen_smooth=True)
+grayscale_cam = cam(input_tensor=input_tensor, target_category=target_category)
+# grayscale_cam = cam(input_tensor=input_tensor, target_category=target_category, aug_smooth=True, eigen_smooth=True)
 
 grayscale_cam = grayscale_cam[0, :]
 input_tensor_wo_norm = input_tensor_wo_norm.squeeze(0)
